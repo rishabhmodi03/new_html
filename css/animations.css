@@ -1,0 +1,100 @@
+/* css/animations.css */
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* --- Animation Utility Classes (can be applied via JS or scroll library) --- */
+.fade-in { animation: fadeIn 0.8s ease forwards; }
+.slide-up { animation: slideInUp 0.8s ease forwards; }
+.bounce-in { animation: bounceIn 0.6s ease forwards; }
+
+/* Add more animation classes as needed (e.g., slideInLeft, zoomIn) */
+
+
+/* --- Transitions & Hover Effects --- */
+
+/* Button Hover (already defined in main.css with transitions) */
+
+/* Navigation Link Hover */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--clr-primary);
+    transition: width 0.3s ease;
+}
+.main-nav a:hover::after,
+.main-nav a.active::after { /* Style for active link */
+    width: 100%;
+}
+
+/* Skill Card Hover (already defined in main.css with transitions) */
+
+/* Project Card Hover */
+/* Basic hover defined in main.css, tilt.js adds more */
+.project-card {
+     /* Existing transitions in main.css */
+     will-change: transform; /* Optimize for tilt.js */
+}
+
+/* Social Links Hover (already defined in main.css with transitions) */
+
+/* Scroll Down Indicator Animation */
+.scroll-down-indicator {
+    animation: bounceUpDown 2s infinite ease-in-out;
+}
+
+@keyframes bounceUpDown {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+}
+
+/* Typed.js Cursor Styling */
+.typed-cursor {
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    color: var(--clr-primary); /* Match accent color or use white */
+    font-weight: bold; /* Make cursor more visible */
+    font-size: 1.5em; /* Match surrounding text size */
+    position: relative; /* Ensure proper alignment */
+    top: 0.1em; /* Fine-tune vertical alignment */
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* --- Theme Toggle Icon Transition --- */
+#theme-toggle i {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+/* Styles to hide/show moon/sun will be toggled via JS */
+
+/* --- Mobile Menu Transition --- */
+/* Already handled in main.css using transform */
+
+/* --- Header Scroll Transition --- */
+/* Already handled in main.css using transition property */
+
+/* --- Scroll-to-Top Button Transition --- */
+/* Already handled in main.css using opacity, visibility, and transform */
